@@ -55,7 +55,7 @@ function del(body) {
 }
 
 module.exports = {
-  get: fetch,
+  get: get,
   post: post,
   put: put,
   patch: patch,
