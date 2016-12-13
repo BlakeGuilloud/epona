@@ -1,36 +1,51 @@
-console.log('epona was loaded');
+const defaultHeaders = { 'Content-Type': 'application/json' };
 
 function get(body) {
-  console.log('the spread body', body);
   const request = new Request(body.route);
 
-  const returnVal = fetch(request)
-    .then(blob => blob.json())
-    .then(data => data);
-  console.log('return val in get', returnVal);
-  return returnVal;
+  return fetch(request).then(blob => blob.json());
 }
 
 function post(body) {
-  console.log('the posted spread body', body);
-  const config = {
-     method: 'POST',
-     mode: 'cors',
-     body: body.body,
-     cache: 'default',
-  };
 
-  const request = new Request(body.route, config);
+  const request = new Request(body.route, {
+  	method: 'POST',
+  	mode: body.mode || 'cors',
+    body: JSON.stringify(body.body),
+  	redirect: body.redirect || 'follow',
+  	headers: new Headers(body.headers || defaultHeaders),
+  });
 
-  const returnVal = fetch(request)
-    .then(blob => blob.json())
-    .then(data => data);
+  return fetch(request).then(blob => blob.json());
+}
 
-    console.log('returnVal in post', returnVal);
-  return returnVal;
+function patch(body) {
+  const request = new Request(body.route, {
+  	method: 'PATCH',
+    mode: body.mode || 'cors',
+    body: JSON.stringify(body.body),
+  	redirect: body.redirect || 'follow',
+  	headers: new Headers(body.headers || defaultHeaders),
+  });
+
+  return fetch(request).then(blob => blob.json());
+}
+
+function put(body) {
+  const request = new Request(body.route, {
+  	method: 'PUT',
+    mode: body.mode || 'cors',
+    body: JSON.stringify(body.body),
+  	redirect: body.redirect || 'follow',
+  	headers: new Headers(body.headers || defaultHeaders),
+  });
+
+  return fetch(request).then(blob => blob.json());
 }
 
 module.exports = {
   get: get,
   post: post,
+  put: put,
+  patch: patch,
 };
