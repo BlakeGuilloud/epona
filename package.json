@@ -1,6 +1,6 @@
 {
   "name": "epona",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Client side HTTP requests",
   "main": "lib/epona.js",
   "scripts": {
