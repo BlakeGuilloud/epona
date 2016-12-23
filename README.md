@@ -4,7 +4,12 @@
 const epona = require('epona');
 
 const requestObject = {
-  route: 'http://yourApiRoute.com/data',
+  route: '/api/ocarina',
+  mode: 'cors',
+  redirect: 'follow',
+  headers: {
+    'Content-Type': 'application/json',
+  },
   body: {
     username: 'GanonSlayer',
     password: 'Zelda44',
@@ -13,9 +18,9 @@ const requestObject = {
   },
 };
 
-epona.get(requestObject);
-epona.post(requestObject);
-epona.patch(requestObject);
-epona.put(requestObject);
-epona.delete(requestObject);
+epona.get(requestObject).catch(err => err);
+epona.post(requestObject).catch(err => err);
+epona.patch(requestObject).catch(err => err);
+epona.put(requestObject).catch(err => err);
+epona.delete(requestObject).catch(err => err);
 ```
