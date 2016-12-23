@@ -5,7 +5,7 @@ export default function post(requestObject) {
   	method: 'POST',
   	mode: requestObject.mode || 'cors',
     body: JSON.stringify(requestObject.body),
-  	redirect: body.redirect || 'follow',
+  	redirect: requestObject.redirect || 'follow',
   	headers: new Headers(requestObject.headers || defaultHeaders),
   });
 
