@@ -4,10 +4,21 @@ import patch from './patch';
 import post from './post';
 import put from './put';
 
+import {
+  localSet,
+  localGet,
+  localDelete,
+  localClear,
+} from './local';
+
 module.exports = {
-  get: get,
-  post: post,
-  put: put,
-  patch: patch,
+  get,
+  post,
+  put,
+  patch,
   delete: del,
+  localSet,
+  localGet,
+  localDelete,
+  localClear,
 };
