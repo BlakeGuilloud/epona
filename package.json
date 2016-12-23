@@ -2,7 +2,7 @@
   "name": "epona",
   "version": "1.0.6",
   "description": "Client side HTTP requests",
-  "main": "lib/epona.js",
+  "main": "dist/epona.min.js",
   "scripts": {
     "build": "rm -Rf lib && babel src -d lib --copy-files",
     "dist": "npm run build && webpack",

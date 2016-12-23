@@ -1,6 +1,6 @@
 import { defaultHeaders } from './defaults';
 
-export function del(requestObject) {
+export default function del (requestObject) {
   const request = new Request(requestObject.route, {
   	method: 'DELETE',
     mode: requestObject.mode || 'cors',
