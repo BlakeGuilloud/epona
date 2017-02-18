@@ -22,5 +22,9 @@
   },
   "files": [
     "dist/**"
-  ]
+  ],
+  "repository": "git@github.com:BlakeGuilloud/epona.git",
+  "dependencies": {
+    "jest": "^18.0.0"
+  }
 }

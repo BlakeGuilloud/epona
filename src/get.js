@@ -1,6 +1,11 @@
 import { defaultHeaders } from './defaults';
-export default function get (requestObject) {
-  const request = new Request(requestObject.route);
+import transferComplete from './transferComplete';
 
-  return fetch(request).then(blob => blob.json()).catch(err => err);
+export default function get (requestObject) {
+  const request = new XMLHttpRequest();
+
+  request.open('GET', requestObject.route);
+  request.addEventListener('load', transferComplete);
+
+  return request.send();
 }
